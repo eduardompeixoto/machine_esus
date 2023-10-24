@@ -28,7 +28,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "pkgload", "pak", "writexl","httr", "jsonlite", "dplyr","qdapRegex","xlsx","devtools","telegram.bot","readr"))
+          install.packages(c("remotes", "pkgload", "pak", "writexl","httr", "jsonlite", "dplyr","qdapRegex","xlsx","devtools","telegram.bot","readr","tidyverse","caret","flextable","gplots","ggplot2","dplyr","factoextra","FactoMineR","ROSE","Amelia","pROC","neuralnet","ROSE","randomForest","e1071","gridExtra","vcd","lubridate"))
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
 
