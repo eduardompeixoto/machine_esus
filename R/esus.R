@@ -5,7 +5,7 @@ esus<-function(){
 # Substitua 'seu_dataframe' pelo nome do seu DataFrame
 
 
-
+devtools::install_github("https://github.com/cran/klaR/tree/master")
 library(readxl)
 url <- "https://github.com/eduardompeixoto/atualiza_esus_notifica/raw/main/inst/planilha_esus.xlsx"
 destfile <- "planilha_esus.xlsx"
