@@ -10,6 +10,8 @@ library(readxl)
 url <- "https://github.com/eduardompeixoto/atualiza_esus_notifica/raw/main/inst/planilha_esus.xlsx"
 load(url(url))
 
+  r<-df_esus
+
 # Lista de bibliotecas desejadas
 bibliotecas <- c(
   "tidyverse",
