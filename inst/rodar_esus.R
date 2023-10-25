@@ -1,5 +1,8 @@
 pkgload::load_all()
 
+url <- "https://github.com/eduardompeixoto/atualiza_esus_notifica/raw/main/inst/planilha_esus.RData"
+load(url(url))
+
 df_esus <- esus()
 
 save(df_esus, file="inst/nowcast.RData")
