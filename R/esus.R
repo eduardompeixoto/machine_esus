@@ -11,7 +11,8 @@ esus<-function(){
   library(readr)
 
   r<- read_delim("https://raw.githubusercontent.com/eduardompeixoto/atualiza_esus_notifica/main/inst/planilha_esus.csv", 
-    delim = ";", escape_double = FALSE, trim_ws = TRUE)
+    delim = ";", escape_double = FALSE, col_types = cols(dataInicioSintomas = col_date(format = "%Y-%m-%d")), 
+    trim_ws = TRUE)
   
   # Lista de bibliotecas desejadas
   bibliotecas <- c(
@@ -68,7 +69,7 @@ esus<-function(){
   library(klaR)
   
   set.seed(123)
-  r[is.na(r)] <- "99"
+  #r[is.na(r)] <- "99"
   
   r <- ovun.sample(confirmado~., data=r, method = "over")$data
   
@@ -89,7 +90,7 @@ esus<-function(){
   r$semvacina<-NULL
   
   seu_dataframe <- r
-  seu_dataframe$dataInicioSintomas[seu_dataframe$dataInicioSintomas == "99"] <- NA
+  #seu_dataframe$dataInicioSintomas[seu_dataframe$dataInicioSintomas == "99"] <- NA
   
   
   
