@@ -1,16 +1,18 @@
 esus<-function(){
 
+  
+  
   # Carregue as bibliotecas necessárias
   
   # Carregue seus dados em um DataFrame
   # Substitua 'seu_dataframe' pelo nome do seu DataFrame
-
-
+  
+  
   devtools::install_github("https://github.com/cran/klaR/tree/master")
   
   library(readr)
-
-
+  
+  
   # Lista de bibliotecas desejadas
   bibliotecas <- c(
     "tidyverse",
@@ -68,9 +70,11 @@ esus<-function(){
   set.seed(123)
   #r[is.na(r)] <- "99"
   
-    r<- read_delim("https://raw.githubusercontent.com/eduardompeixoto/atualiza_esus_notifica/main/inst/planilha_esus.csv", 
-    delim = ";", escape_double = FALSE, col_types = cols(dataInicioSintomas = col_date(format = "%Y-%m-%d")), 
-    trim_ws = TRUE)
+  r<- read_delim("https://raw.githubusercontent.com/eduardompeixoto/atualiza_esus_notifica/main/inst/planilha_esus.csv", 
+                 delim = ";", escape_double = FALSE, col_types = cols(dataInicioSintomas = col_date(format = "%Y-%m-%d")), 
+                 trim_ws = TRUE)
+  
+  r$...1<-NULL
   
   #r <- ovun.sample(confirmado~., data=r, method = "over")$data
   
@@ -147,10 +151,16 @@ esus<-function(){
   # Visualização das modas em gráficos de barras
   # Gráfico para confirmados 0
   
+  moda_clusters_0[ , colnames(moda_clusters_0)] <- lapply(moda_clusters_0[ , colnames(moda_clusters_0)], as.character)
+  
+  
   moda_clusters_0$dataInicioSintomas<-NULL
   moda_clusters_0$semanaEpidemiologica<-NULL
   moda_clusters_0$confirmado<-as.character(moda_clusters_0$confirmado)
   moda_clusters_0_long <- tidyr::pivot_longer(moda_clusters_0, cols = -cluster)
+  
+  
+  moda_clusters_1[ , colnames(moda_clusters_1)] <- lapply(moda_clusters_1[ , colnames(moda_clusters_1)], as.character)
   
   moda_clusters_1$dataInicioSintomas<-NULL
   moda_clusters_1$semanaEpidemiologica<-NULL
@@ -164,6 +174,9 @@ esus<-function(){
   moda_clusters_combinados <- dados_combinados %>%
     group_by(semanaEpidemiologica, confirmado) %>%
     summarise_all(Mode)
+  
+  moda_clusters_combinados[ , colnames(moda_clusters_combinados)] <- lapply(moda_clusters_combinados[ , colnames(moda_clusters_combinados)], as.character)
+  
   
   moda_clusters_combinados$dataInicioSintomas<-NULL
   moda_clusters_combinados$confirmado<-as.character(moda_clusters_combinados$confirmado)
@@ -217,9 +230,7 @@ esus<-function(){
   
   result<-subset(result,stringr::str_detect(result$valor,"racaCor")==F)
   result2<-subset(result2,stringr::str_detect(result2$valor,"racaCor")==F)
-  
-  
-  
+
   # Seu código para o primeiro gráfico com coordenadas invertidas
   bar_chart <- ggplot(result, aes(x = semanaEpidemiologica, y = 1, fill = as.factor(valor))) +
     geom_bar(stat = "identity", position = "dodge", color = "white", fill = "white") +
@@ -255,16 +266,14 @@ esus<-function(){
   # Use grid.arrange para organizar os gráficos lado a lado com o título
   
   
-  
-  # Título geral
-  main_title <- textGrob("Identificação de padrões de casos por confirmação de COVID-19 via K-Modas nas últimas 4 semanas epedimiológicas completas", gp=gpar(fontsize=16))
-  main_title2 <- textGrob("", gp=gpar(fontsize=14))
-  
-  # Gráfico original
+
   
   
   
   bar_chart
+  
+
+
   
   }
   
