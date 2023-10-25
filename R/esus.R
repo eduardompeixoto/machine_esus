@@ -72,7 +72,7 @@ esus<-function(){
     delim = ";", escape_double = FALSE, col_types = cols(dataInicioSintomas = col_date(format = "%Y-%m-%d")), 
     trim_ws = TRUE)
   
-  r <- ovun.sample(confirmado~., data=r, method = "over")$data
+  #r <- ovun.sample(confirmado~., data=r, method = "over")$data
   
   
   r<-r %>% mutate(  idade= case_when(idade <= 1 ~ "Até 1",
