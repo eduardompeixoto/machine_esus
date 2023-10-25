@@ -4,18 +4,14 @@ esus<-function(){
   
   # Carregue seus dados em um DataFrame
   # Substitua 'seu_dataframe' pelo nome do seu DataFrame
-  
-library(readxl)
-url <- "https://github.com/eduardompeixoto/atualiza_esus_notifica/raw/main/inst/planilha_esus.RData"
-load(url(url))
 
-r<-df_esus
+
   devtools::install_github("https://github.com/cran/klaR/tree/master")
-  library(readxl)
-  url <- "https://github.com/eduardompeixoto/atualiza_esus_notifica/raw/main/inst/planilha_esus.RData"
-  load(url(url))
   
-  r<-df_esus
+  library(readr)
+
+  r<- read_delim("https://raw.githubusercontent.com/eduardompeixoto/atualiza_esus_notifica/main/inst/planilha_esus.csv", 
+    delim = ";", escape_double = FALSE, trim_ws = TRUE)
   
   # Lista de bibliotecas desejadas
   bibliotecas <- c(
