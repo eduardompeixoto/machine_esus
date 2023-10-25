@@ -103,7 +103,7 @@ esus<-function(){
   seu_dataframe$dataInicioSintomas <- as.Date(seu_dataframe$dataInicioSintomas)
   seu_dataframe$semanaEpidemiologica <- week(seu_dataframe$dataInicioSintomas)
   
-  seu_dataframe<-subset(seu_dataframe,seu_dataframe$semanaEpidemiologica==lubridate::epiweek(Sys.Date())-4|seu_dataframe$semanaEpidemiologica==lubridate::epiweek(Sys.Date())-3|seu_dataframe$semanaEpidemiologica==lubridate::epiweek(Sys.Date())-2|seu_dataframe$semanaEpidemiologica==lubridate::epiweek(Sys.Date())-1)
+  seu_dataframe<-subset(seu_dataframe,seu_dataframe$semanaEpidemiologica==lubridate::epiweek(Sys.Date())-6|seu_dataframe$semanaEpidemiologica==lubridate::epiweek(Sys.Date())-5|seu_dataframe$semanaEpidemiologica==lubridate::epiweek(Sys.Date())-4|seu_dataframe$semanaEpidemiologica==lubridate::epiweek(Sys.Date())-3|seu_dataframe$semanaEpidemiologica==lubridate::epiweek(Sys.Date())-2|seu_dataframe$semanaEpidemiologica==lubridate::epiweek(Sys.Date())-1)
   
   seu_dataframe <- na.omit(seu_dataframe)
   
