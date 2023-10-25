@@ -7,7 +7,7 @@ esus<-function(){
 
 devtools::install_github("https://github.com/cran/klaR/tree/master")
 library(readxl)
-url <- "https://github.com/eduardompeixoto/atualiza_esus_notifica/raw/main/inst/planilha_esus.xlsx"
+url <- "https://github.com/eduardompeixoto/atualiza_esus_notifica/raw/main/inst/planilha_esus.RData"
 load(url(url))
 
   r<-df_esus
