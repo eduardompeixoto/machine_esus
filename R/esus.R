@@ -10,10 +10,7 @@ esus<-function(){
   
   library(readr)
 
-  r<- read_delim("https://raw.githubusercontent.com/eduardompeixoto/atualiza_esus_notifica/main/inst/planilha_esus.csv", 
-    delim = ";", escape_double = FALSE, col_types = cols(dataInicioSintomas = col_date(format = "%Y-%m-%d")), 
-    trim_ws = TRUE)
-  
+
   # Lista de bibliotecas desejadas
   bibliotecas <- c(
     "tidyverse",
@@ -70,6 +67,10 @@ esus<-function(){
   
   set.seed(123)
   #r[is.na(r)] <- "99"
+  
+    r<- read_delim("https://raw.githubusercontent.com/eduardompeixoto/atualiza_esus_notifica/main/inst/planilha_esus.csv", 
+    delim = ";", escape_double = FALSE, col_types = cols(dataInicioSintomas = col_date(format = "%Y-%m-%d")), 
+    trim_ws = TRUE)
   
   r <- ovun.sample(confirmado~., data=r, method = "over")$data
   
