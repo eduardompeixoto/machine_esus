@@ -66,7 +66,14 @@ esus<-function(){
   library(vcd)
   library(lubridate)
   library(klaR)
-  
+
+
+
+  library(readr)
+r <- read_delim("https://raw.githubusercontent.com/eduardompeixoto/atualiza_esus_notifica/main/inst/planilha_esus.csv",
+delim = ";", escape_double = FALSE, col_types = cols(...1 = col_skip()),
+trim_ws = TRUE)
+
   set.seed(123)
   #r[is.na(r)] <- "99"
 
