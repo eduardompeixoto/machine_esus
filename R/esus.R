@@ -11,7 +11,7 @@ esus<-function(){
 devtools::install_github("https://github.com/cran/klaR/tree/master")
 
 library(readr)
-
+require(qdapRegex)
 
 # Lista de bibliotecas desejadas
 bibliotecas <- c(
